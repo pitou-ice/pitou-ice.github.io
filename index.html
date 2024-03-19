@@ -1,209 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
-    <title></title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-    <style>
-      body {
-        background-image: url('background.jpg');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        /* backdrop-filter: blur(10px) brightness(75%); */
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        transition: background-image 0.5s ease;
-      }
 
-      .glassmorphism-card {
-        background: rgba(255, 255, 255, 0.15);
-        backdrop-filter: blur(10px);
-        border-radius: 20px;
-        padding: 20px;
-        width: 500px;
-        text-align: center;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-        transition: background 0.5s ease;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <title></title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    body {
+      background-image: url('background.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      backdrop-filter: brightness(50%);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      transition: background-image 0.5s ease;
+    }
 
-      .glassmorphism-card h1 {
-        color: #fff;
-        font-size: 30px;
-      }
+    .glassmorphism-card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 20px;
+      width: 500px;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      transition: background 0.5s ease;
+    }
 
-      .glassmorphism-card h2 {
-        color: #fff;
-        font-size: 24px;
-      }
+    .glassmorphism-card h1 {
+      color: #fff;
+      font-size: 30px;
+    }
 
-      .glassmorphism-card p {
-        color: #fff;
-        font-size: 16px;
-        text-align: left;
-        margin: 0 25px;
-      }
+    .glassmorphism-card h2 {
+      color: #fff;
+      font-size: 24px;
+    }
 
-      .icon-links {
-        margin-top: 20px;
-      }
+    .glassmorphism-card p {
+      color: #fff;
+      font-size: 16px;
+      margin: 0 25px;
+    }
 
-      .icon-links a {
-        display: inline-block;
-        margin: 0 10px;
-        color: #fff;
-        text-decoration: none;
-        font-size: 24px;
-        transition: color 0.15s ease;
-      }
+    .icon-links {
+      margin-top: 20px;
+    }
 
-      .icon-links a:hover {
-        color: #69f;
-      }
+    .icon-links a {
+      display: inline-block;
+      margin: 0 10px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 24px;
+      transition: color 0.15s ease;
+    }
 
-      .toggle-btn {
-        position: absolute;
-        bottom: 10px;
-        left: 10px;
-        padding: 5px 10px;
-        background-color: rgba(255, 255, 255, 0.3);
-        border: none;
-        border-radius: 5px;
-        color: #333;
-        font-size: 18px;
-        cursor: pointer;
-        outline: none;
-      }
+    .icon-links a:hover {
+      color: #69f;
+    }
 
-      .form-container {
-        margin-top: 20px;
-        display: none; /*flex;*/
-        flex-direction: column;
-        gap: 15px;
-      }
+    .toggle-btn {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      padding: 5px 10px;
+      background-color: rgba(255, 255, 255, 0.3);
+      border: none;
+      border-radius: 5px;
+      color: #333;
+      font-size: 18px;
+      cursor: pointer;
+      outline: none;
+    }
 
-      .form-input {
-        padding: 8px;
-        border-radius: 8px;
-        border: 1px solid #fff;
-        background-color: rgba(255, 255, 255, 0.2);
-        color: #fff;
-        outline: none;
-        transition: border-color 0.3s ease;
-      }
+    .form-container {
+      margin-top: 20px;
+      display: none;
+      flex-direction: column;
+      gap: 15px;
+    }
 
-      .form-input::placeholder {
-        color: #fff;
-      }
+    .form-input {
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid #fff;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
 
-      .form-input:focus {
-        border-color: #36f;
-      }
+    .form-input::placeholder {
+      color: #fff;
+    }
 
-      .form-button {
-        padding: 8px 16px;
-        border: none;
-        border-radius: 8px;
-        background-color: rgba(255, 255, 255, 0.3);
-        color: #fff;
-        cursor: pointer;
-        transition: background-color 0.3s ease, color 0.3s ease;
-      }
+    .form-input:focus {
+      border-color: #36f;
+    }
 
-      .form-button:hover {
-        background-color: #36f;
-        color: #fff;
-      }
+    .form-button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.3);
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
 
-      .result-container {
-        display: none;
-        color: #fff;
-        font-size: 16px;
-      }
-    </style>
-  </head>
+    .form-button:hover {
+      background-color: #36f;
+      color: #fff;
+    }
 
-  <body>
-    <div class="glassmorphism-card">
-      <h1>Terence Damase-Pinel</h1>
-      <h2 id="heading"></h2>
-      <p id="content"></p>
-      <div class="icon-links">
-        <a href="https://github.com/pitou-ice" target="_blank"
-          ><i class="fab fa-github"></i
-        ></a>
-        <a
-          href="https://www.linkedin.com/in/terence-damase-pinel/"
-          target="_blank"
-          ><i class="fab fa-linkedin"></i
-        ></a>
-        <a href="https://discord.gg/z9TrdS2T" target="_blank"
-          ><i class="fab fa-discord"></i
-        ></a>
-      </div>
+    .result-container {
+      display: none;
+      color: #fff;
+      font-size: 16px;
+      text-align: left;
+      word-wrap: break-word;
+    }
+  </style>
+</head>
 
-      <!-- Form -->
-      <div class="form-container">
-        <input
-          type="text"
-          id="textInput"
-          class="form-input"
-          placeholder="Ask a question..."
-        />
-        <button id="sendButton" class="form-button" onclick="sendText()"></button>
-        <!-- Result Container -->
-        <div id="resultContainer" class="result-container"></div>
-      </div>
+<body>
+  <div class="glassmorphism-card">
+    <h1>Terence Damase-Pinel</h1>
+    <h2 id="heading"></h2>
+    <p id="content"></p>
+    <div class="icon-links">
+      <a href="https://github.com/pitou-ice" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/terence-damase-pinel/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://discord.gg/z9TrdS2T" target="_blank"><i class="fab fa-discord"></i></a>
     </div>
-    <button id="toggle-btn" class="toggle-btn" onclick="toggleLanguage()"></button>
-    <script>
-      let language = 'french';
 
-      const heading = document.getElementById('heading');
-      const content = document.getElementById('content');
-      const textInput = document.getElementById('textInput');
-      const sendButton = document.getElementById('sendButton');
-      const resultContainer = document.getElementById('resultContainer');
-      const toggle = document.getElementById('toggle-btn');
+    <!-- Form -->
+    <div id="formContainer" class="form-container">
+      <input type="text" id="textInput" class="form-input" placeholder="Ask a question..." />
+      <button id="sendButton" class="form-button" onclick="sendText()"></button>
+      <!-- Result Container -->
+      <div id="resultContainer" class="result-container"></div>
+    </div>
+  </div>
+  <button id="toggle-btn" class="toggle-btn" onclick="toggleLanguage()"></button>
+</body>
 
-      function toggleLanguage() {
-        if (language === 'english') {
-          document.title = 'Ingénieur Logiciel + Données';
-          heading.textContent = 'Ingénieur Logiciel + Données';
-          content.textContent =
-            "Je suis un développeur de logiciels spécialisé dans le développement back-end, DevOps, ETL et les LLMs. Maîtrisant de nombreux langages, j'excelle dans la création de solutions évolutives qui optimisent les performances et simplifient les processus.";
-          textInput.placeholder = 'Parl-o-bot...';
-          sendButton.textContent = 'Envoyer';
-          toggle.textContent = 'English';
-          language = 'french';
-        } else {
-          document.title = 'Software Engineer + Data';
-          heading.textContent = 'Software Engineer + Data';
-          content.textContent =
-            "I'm a seasoned software developer specializing in back-end development, DevOps, ETL, and LLMs. Proficient in multiple languages, I excel in crafting scalable solutions that optimize performance and streamline processes.";
-          textInput.placeholder = 'Ask-a-bot...';
-          sendButton.textContent = 'Send';
-          toggle.textContent = 'Français';
-          language = 'english';
-        }
+<script type="module">
+  import { AutoTokenizer, AutoModelForSequenceClassification } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers';
+
+  const model_id = 'mxbai-rerank-xsmall-v1';
+  const model = await AutoModelForSequenceClassification.from_pretrained(model_id);
+  const tokenizer = await AutoTokenizer.from_pretrained(model_id);
+  document.getElementById('formContainer').style.display = 'flex';
+
+  async function rank(query, documents, {
+    top_k = undefined,
+    return_documents = false,
+  } = {}) {
+    const inputs = tokenizer(
+      new Array(documents.length).fill(query),
+      {
+        text_pair: documents,
+        padding: true,
+        truncation: true,
       }
+    )
+    const { logits } = await model(inputs);
+    return logits
+      .sigmoid()
+      .tolist()
+      .map(([score], i) => ({
+        score,
+        ...(return_documents ? { text: documents[i] } : {})
+      }))
+      .sort((a, b) => b.score - a.score)
+      .slice(0, top_k);
+  }
 
-      function sendText() {
-        const textInput = document.getElementById('textInput').value;
-        resultContainer.style.display = 'block';
-        resultContainer.innerHTML = 'OK';
-      }
+  window.getInfo = async (query, lang) => {
+    const documents = {
+      'french': [
+        "Je suis actuellement situé à Québec, QC, Canada. Vous pouvez me contacter au +1 (418) 930-4042 ou par e-mail à terence.damase@hotmail.fr.",
+        "Vous pouvez me contacter au +1 (418) 930-4042 ou par e-mail à terence.damase@hotmail.fr.",
+        "Mon expertise se situe dans les processus ETL et les pipelines de données, avec une spécialisation récente en apprentissage automatique. Je privilégie la qualité et la maintenabilité dans tout mon travail.",
+        "Je cherche continuellement à élargir mes connaissances et à intégrer de nouveaux cadres dans ma boîte à outils pour garantir la qualité et la maintenabilité de mes solutions.",
+        "J'ai collaboré avec Enedis R&D chez Capgemini pour traduire un algorithme R en Java pour la prédiction d'incidents.",
+        "J'ai géré l'acquisition continue de données et l'intégration en utilisant RabbitMQ et Python pendant mon temps chez Capgemini.",
+        "J'ai assuré une couverture de test élevée et une qualité, maintenant constamment une couverture supérieure à 80% en utilisant des outils tels que JUnit, Mockito et Sonarqube.",
+        "J'ai optimisé le temps de réponse de l'API grâce à l'optimisation des requêtes SQL dans mon rôle chez SNCF.",
+        "Je me suis adapté à l'environnement de travail Agile chez SNCF en travaillant avec une grande base de code existante et en apprenant et en mettant en œuvre des pratiques de test professionnelles.",
+        "J'ai donné la priorité à la visibilité du client et contribué à la réalisation de cet objectif pendant mon temps de travail chez SNCF.",
+        "Je travaille actuellement sur un assistant AI nommé Lidvi. Utilisant diverses technologies, y compris Python, Discord.py, Huggingface, Milvus, RabbitMQ, lxml/xpath et Pandas.",
+        "Mon parcours éducatif comprend la réalisation de tous les modules mathématiques jusqu'au Calcul sur Khan Academy, la formation sur les plateformes internes à La Ruche, Capgemini, la réalisation d'un programme POEI Java EE chez Dawan, Nantes, France, et la poursuite de BMA Horlogerie aux Savarières, Nantes, France."
+      ]
+      ,
+      'english': [
+        "I am currently located in Québec, QC, Canada. You can reach me at +1 (418) 930-4042 or via email at terence.damase@hotmail.fr.",
+        "You can reach me at +1 (418) 930-4042 or via email at terence.damase@hotmail.fr.",
+        "My expertise lies in ETL processes and data pipelines, with recent specialization in machine learning. I prioritize quality and maintainability in all my work.",
+        "I continuously seek to expand my knowledge and integrate new frameworks into my toolkit to ensure quality and maintainability in my solutions.",
+        "I collaborated with Enedis R&D at Capgemini to translate an R algorithm into Java for incident prediction.",
+        "I managed continuous data acquisition and integration using RabbitMQ and Python during my time at Capgemini.",
+        "I ensured high test coverage and quality, consistently maintaining coverage above 80% using tools like JUnit, Mockito, and Sonarqube.",
+        "I optimized API response time through SQL query optimization in my role at SNCF.",
+        "I adapted to the Agile working environment at SNCF by working with a large existing codebase and learning and implementing professional testing practices.",
+        "I prioritized client visibility and contributed to achieving this during my time working for SNCF.",
+        "I am currently working on an AI assistant named Lidvi. Using various technologies, including Python, Discord.py, Huggingface, Milvus, RabbitMQ, lxml/xpath, and Pandas.",
+        "My educational background includes completing all mathematical modules up to Calculus on Khan Academy, internal platforms training at La Ruche, Capgemini, completing a POEI Java EE program at Dawan, Nantes, France, and pursuing BMA Horlogerie (Watchmaking) at Les Savarières, Nantes, France."
+      ]
+    };
 
-      toggleLanguage()
-    </script>
-  </body>
+    const results = await rank(query, documents[lang], { return_documents: true, top_k: 2 });
+    return results;
+  }
+
+</script>
+
+<script>
+  let language = 'french';
+
+  const heading = document.getElementById('heading');
+  const content = document.getElementById('content');
+  const textInput = document.getElementById('textInput');
+  const sendButton = document.getElementById('sendButton');
+  const resultContainer = document.getElementById('resultContainer');
+  const toggle = document.getElementById('toggle-btn');
+
+  function toggleLanguage() {
+    if (language === 'english') {
+      document.title = 'Ingénieur Logiciel + Données';
+      heading.textContent = 'Ingénieur Logiciel + Données';
+      content.textContent = "Je suis un développeur de logiciels spécialisé dans le développement back-end, DevOps, ETL et les LLMs. Maîtrisant de nombreux langages, j'excelle dans la création de solutions évolutives qui optimisent les performances et simplifient les processus.";
+      textInput.placeholder = 'Parl-o-bot...';
+      sendButton.textContent = 'Envoyer';
+      toggle.textContent = 'English';
+      language = 'french';
+    } else {
+      document.title = 'Software Engineer + Data';
+      heading.textContent = 'Software Engineer + Data';
+      content.textContent = "I'm a seasoned software developer specializing in back-end development, DevOps, ETL, and LLMs. Proficient in multiple languages, I excel in crafting scalable solutions that optimize performance and streamline processes.";
+      textInput.placeholder = 'Ask-a-bot...';
+      sendButton.textContent = 'Send';
+      toggle.textContent = 'Français';
+      language = 'english';
+    }
+  }
+
+  function sendText() {
+    const textInput = document.getElementById('textInput').value;
+    if (!textInput) return
+
+    resultContainer.style.display = 'block';
+
+    window.getInfo(textInput, language).then(res => {
+      resultContainer.innerHTML = res.map(val => val['text']).join('<br/><br/>')
+    }).catch(err => {
+      console.error(err)
+    });
+  }
+
+  toggleLanguage();
+</script>
+
 </html>
